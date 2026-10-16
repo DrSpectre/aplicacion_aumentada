@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct app_aumentadaApp: App {
+    @State var controlador = Controlador()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            VistaAR()
+                .environment(controlador)
         }
     }
 }
