@@ -27,5 +27,13 @@ extension Entity{
         
         return false
     }
+    
+    func nombre() -> String{
+        return self.name
+    }
+    
+    func nombre(_ nombre: String){
+        self.name = nombre
+    }
 }
 

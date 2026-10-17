@@ -24,6 +24,9 @@ struct VistaAR: View {
                     escenario.add(control.escenario)
                     
                 }
+                .gesture(TapGesture().targetedToAnyEntity().onEnded{ evento in
+                    control.apachurraron_a(evento.entity)
+                })
         }
         
         
