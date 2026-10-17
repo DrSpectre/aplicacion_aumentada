@@ -63,16 +63,16 @@ class Controlador{
                     anclas.append(imagen)
                     escenario.addChild(imagen)
                     
-                case .pared:
-                    let pared = AnchorEntity(.plane(.vertical, classification: .wall, minimumBounds: SIMD2(0.1, 0.1)))
+                case .pared(let tamaño):
+                    let pared = AnchorEntity(.plane(.vertical, classification: .wall, minimumBounds: SIMD2(tamaño, tamaño)))
                     
                     pared.addChild(entidad)
                     
                     anclas.append(pared)
                     escenario.addChild(pared)
                 
-                case .suelo:
-                    let suelo = AnchorEntity(.plane(.horizontal, classification: .floor, minimumBounds: SIMD2(0.1, 0.1)))
+                case .suelo(let tamaño):
+                    let suelo = AnchorEntity(.plane(.horizontal, classification: .floor, minimumBounds: SIMD2(tamaño, tamaño)))
                     
                     suelo.addChild(entidad)
                     

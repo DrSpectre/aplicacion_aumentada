@@ -6,8 +6,8 @@
 //
 enum TiposDeAR{
     case imagen(nombre: String)
-    case suelo
-    case pared
+    case suelo(tamaño: Float)
+    case pared(tamaño: Float)
 }
 
 struct Modelo{
