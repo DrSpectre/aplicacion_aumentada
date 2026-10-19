@@ -6,7 +6,9 @@
 //
 
 enum EstadosControlador{
-    case inicializando
-    case descanso
+    case inicializando ///  Estamos abriendo la app y cargando los recursos
+    case descanso /// Estamos esperando a que el usario haga algo
+    
+    case mostrar_informacion /// Mostrar indfomracion de un modelo en esepcifico
 }
 

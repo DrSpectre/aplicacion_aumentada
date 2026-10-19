@@ -11,18 +11,16 @@ import SwiftUI
 struct VistaAR: View {
     @Environment(Controlador.self) var control
     
-    
     var body: some View {
         switch(control.estado){
             case .inicializando:
                 Text("Cargando")
                 
-            case .descanso:
+            default:
                 RealityView{ escenario in
                     escenario.camera = .spatialTracking
                     
                     escenario.add(control.escenario)
-                    
                 }
                 .gesture(TapGesture().targetedToAnyEntity().onEnded{ evento in
                     control.apachurraron_a(evento.entity)

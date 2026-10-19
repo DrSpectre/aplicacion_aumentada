@@ -13,7 +13,7 @@ struct app_aumentadaApp: App {
     
     var body: some Scene {
         WindowGroup {
-            VistaAR()
+            PantallaPrincipal()
                 .environment(controlador)
         }
     }

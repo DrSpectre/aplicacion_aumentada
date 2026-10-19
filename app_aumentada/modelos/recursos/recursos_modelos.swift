@@ -6,7 +6,7 @@
 //
 
 let modelos_disponibles = [
-    Modelo(modelo: "tu/ruta/nombre", tipo: .imagen(nombre: "l1")),
+    Modelo(modelo: "escenario", tipo: .imagen(nombre: "target_1")),
     Modelo(modelo: "tu/ruta/nombre", tipo: .pared(tamaño: 0.25)),
     Modelo(modelo: "tu/ruta/nombre", tipo: .suelo(tamaño: 0.25)),
     Modelo(modelo: "archivo_no_encontrado", tipo: .pared(tamaño: 0.25))

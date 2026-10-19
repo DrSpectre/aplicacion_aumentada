@@ -15,6 +15,8 @@ class Controlador{
     public private(set) var estado: EstadosControlador = .inicializando
     // Aqui hacemos la tecnica del _var privado y variable publica para cosnutlar. SOlo que mas facil al parecer.
     
+    var informacion_a_mostrar: String = ""
+    
     private(set) var escenario: Entity = Entity() // Este va a servir para guardar las cosas aqui directamente y no tener que avisarle a las vistas que deben de refrescar o agregar nuevos modelos. Practicidad.
     
     
@@ -48,15 +50,20 @@ class Controlador{
         
         for modelo in modelos_disponibles{
             // guard let entidad = try? await Entity(named: modelo.modelo, in: ar_realitykitBundle) else {
-            guard let entidad = try? await ModelEntity(mesh: .generateText("El modelo: \(modelo.modelo)")) else {
+            guard let entidad = try? await ModelEntity(mesh: .generateBox(size: 0.1)) else {
                 fatalError("Modelo \(modelo.modelo) no encontrado.")
             }
+            
+            /*
+            entidad.generateCollisionShapes(recursive: true)
+            entidad.components.set(InputTargetComponent())
+             */ /// Seccion de depuracion. Tener cuidado
             
             entidad.nombre(modelo.modelo)
             
             switch(modelo.tipo){
                 case .imagen(let nombre):
-                    let imagen = AnchorEntity(.image(group: "ar", name: nombre))
+                    let imagen = AnchorEntity(.image(group: "ar", name: nombre)) // Pueden reemplazar AR con el nombre de su carpteta de imagenes o recurso de Realidad Aumentada
                     
                     imagen.addChild(entidad)
                     
@@ -122,8 +129,24 @@ class Controlador{
         }
     }
     
-    func apachurraron_a(_ entidad: Entity){
+    func apachurraron_a(_ entidad: Entity){// Este de aqui es llamado cada vez que pulsan o interactuan con una entidad.
+        switch(entidad.nombre()){
+            case "":
+                fatalError("La entidad no tiene nombre")
+                
+            case "el nombre en especifico":
+                estado = .mostrar_informacion
+                informacion_a_mostrar = "Este es un texto de prueba"
+            /*default:
+                break;*/
+                
+        }
         entidad.enviar_notificacion("animacion")
+    }
+    
+    func pulsaron_boton(_ nombre: String){
+        // Podemos saber cual boton pulasron y que debemos de hacer cuando lo pulsan.
+        estado = .descanso
     }
 }
 
