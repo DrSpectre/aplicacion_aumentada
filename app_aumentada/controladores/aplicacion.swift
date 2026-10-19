@@ -137,11 +137,14 @@ class Controlador{
             case "el nombre en especifico":
                 estado = .mostrar_informacion
                 informacion_a_mostrar = "Este es un texto de prueba"
-            /*default:
-                break;*/
+                
+            case "la entidad tiene nombre y queremos ejecutar una animacion":
+                entidad.enviar_notificacion("nombre de l anotificaicon apra activar la animacion")
+                
+            default:
+                break;
                 
         }
-        entidad.enviar_notificacion("animacion")
     }
     
     func pulsaron_boton(_ nombre: String){
